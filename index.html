@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Apply Here.in</title>
+  <style type="text/css">
+          .btnSubmit
+            {
+                width: 15%;
+                border-radius: 4px;
+                padding: 1.1%;
+                color: #fff;
+                background-color: blue;
+                border: none;
+                cursor: pointer;
+                margin-right: 1%;
+                color: rgb(246, 246, 252);
+                margin-top: -2%;
+            }
+              
+    }
+  </style>
+</head>
+<body>
+  <form method="post" autocomplete="off" name="google-sheet">
+  	<center><br><br>
+         <h1 style="font-family:Arial;color: green;" >Registration Form</h1><br>
+         <table border="5">	
+            
+             <tr><td><b>Name : </b></td>
+             <td><input type="text" name="Name"   required="" placeholder="Enter Your Fullname *" /></td>
+            </tr>
+            <tr><td><b>Email : </b></td>
+            <td><input type="text" name="Email"   required="" / placeholder="Example@example.com"></td>
+            </tr>
+            <tr><td><b>Phone no. : </b></td>
+            <td><input type="number" name="Phone"   required="" placeholder="Enter Your Contact number" /></td>
+            </tr>
+            <tr><td><b>Gender : </b></td>
+             <td><input type="radio"  name="Gender" value="male" >male
+            <input type="radio"  name="Gender" value="female"  >female<br/></td>
+             </tr>
+             <tr><td><b>D.O.B : </b> </td>
+              <td><input type="text" name="D.O.B"   required=""   placeholder="00/00/0000" /></td>
+             </tr>
+              <tr><td><b>Category of Website : </b> </td>
+                
+              <td><select>
+                             <option name="Web">Select Your Website</option>          
+             <option name="Web">E-commorce</option>
+             <option name="Web">For Company</option>
+             <option name="Web">Form</option>
+              </select>
+              </tr>
+              <tr><td><b>Two Steps Verfication(Enter the Website you choose in above section)</b></td>
+                
+                <td><input type="text" name="Web" required="" maxlength="20" placeholder="Enter The Website You Need"></td>
+                
+              </tr>
+         </table>
+         <br><br>
+         <div class="form-group">
+         <input type="submit" name="submit" class="btnSubmit btn-block" value="Submit" />
+                                        </div>
+          <div class="This page">
+            <h3 style="color: red;">Please Wait For 10second After Clicking Sumbit & Wait For This Page Say...(Read Carefully)</h3>
+          </div>
+    </center>
+  </form>
+
+  <script type="text/javascript">
+
+
+	  const scriptURL = 'https://script.google.com/macros/s/AKfycbzYMgot6fUviovZNhSEoAI_MgFBqR_JE4XT70HEOlRXsVefJnYdFMMkxobf3qbgBxWk/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("You have successfully submitted,In few days you will get a Email.."))
+                .catch(error => console.error('Error!', error.message))
+            })
+  </script>
+</body>
+</html>
